@@ -51,7 +51,8 @@ set encoding=utf-8
 set nowrap
 set noswapfile
 set nobackup
+
 "izaci sa esc
-nmap <ESC> :q!<CR>
-nmap <C-P> :exe '!ptxt \"' . substitute(@%%, '.conv.txt', '', 'y') . '\" /p'<CR>
+nmap <ESC> :macaction terminate:<CR>
+nmap <C-P> :execute "!$VIMRUNTIME/../../../../../ptxt " . substitute(expand('%:p'), '.conv.txt', '', 'y') . " /p"<CR>
 
