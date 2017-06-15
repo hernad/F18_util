@@ -56,3 +56,4 @@ set nobackup
 nmap <ESC> :macaction terminate:<CR>
 nmap <C-P> :execute "!$VIMRUNTIME/../../../../../ptxt " . substitute(expand('%:p'), '.conv.txt', '', 'y') . " /p"<CR>
 
+set guifont=Monaco:h14

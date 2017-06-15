@@ -7,16 +7,9 @@ FNAME="$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
 #https://stackoverflow.com/questions/6121091/get-file-directory-path-from-file-path
 F18_EDITOR_DIR=$(dirname $0)
 
-echo $F18_EDITOR_DIR, $FNAME
+#echo $F18_EDITOR_DIR, $FNAME
 
-cat $FNAME | sed -e "s/#\S\+#//g" | iconv -c -f IBM852 -t UTF-8 > "$FNAME.conv.txt"
+#https://github.com/knowhow/T0_knowhow/blob/fdee93923fa49838deb1c2c398c9b4/sed/f18_editor_mac#L12
+cat $FNAME | iconv -c -f IBM852 -t UTF-8 | sed -e 's/#%[0-9A-Z_]\{5\}#//g' > $FNAME.conv.txt
 
-#VIM_OPTS="-c ':set encoding=utf-8' -c ':set nowrap' -c ':set noswapfile' -c ':set nobackup'"
-#VIM_OPTS="$VIM_OPTS' -c 'nmap <C-P> :exe '!ptxt substitute(@%%, '.conv.txt', '', 'y') /p'<CR>'"
-
-# http://vim.wikia.com/wiki/Get_the_name_of_the_current_file
-# VIM_OPTS+=' -c "nmap <C-P> :exe '!ptxt \"' . expand expand('%:p') . '\" /p'<CR>"'
-
-echo $FNAME.conv.txt
-
-$F18_EDITOR_DIR/MacVim.app/Contents/MacOS/MacVim $FNAME.conv.txt &
+open -a $F18_EDITOR_DIR/MacVim.app/Contents/MacOS/MacVim $FNAME.conv.txt

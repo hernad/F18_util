@@ -6,5 +6,4 @@ eeed90cba345e78863bbf106e10153e92dacb2598d71e762a14b48f65b027cf6  windows/f18_ed
 
 $ shasum -a 256 darwin/f18_editor/f18_editor
 --------------------------------------------
-839e4517d572ae71e1b2dea3a66b6700af319a2190341b640a950b287f1165ae  f18_editor/f18_editor
-
+839e4517d572ae71e1b2dea3a66b6700af319a2190341b640a950b287f1165ae  darwin/f18_editor/f18_editor
