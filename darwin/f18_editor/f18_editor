@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+# MacVim.app/Contents/Resources/vim/vimrc
+
+FNAME="$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
+
+echo $FNAME
+
+cat "$1" | sed -e ""s/#\S\+#//g"" | iconv -c -f IBM852 -t UTF-8 > "$FNAME.conv.txt"
+
+#VIM_OPTS="-c ':set encoding=utf-8' -c ':set nowrap' -c ':set noswapfile' -c ':set nobackup'"
+#VIM_OPTS="$VIM_OPTS' -c 'nmap <C-P> :exe '!ptxt substitute(@%%, '.conv.txt', '', 'y') /p'<CR>'"
+
+# http://vim.wikia.com/wiki/Get_the_name_of_the_current_file
+#VIM_OPTS+=' -c "nmap <C-P> :exe '!ptxt \"' . expand expand('%:p') . '\" /p'<CR>"'
+
+echo $FNAME.conv.txt
+
+MacVim.app/Contents/MacOS/MacVim $FNAME.conv.txt &
+
+
