@@ -7,3 +7,8 @@ eeed90cba345e78863bbf106e10153e92dacb2598d71e762a14b48f65b027cf6  windows/f18_ed
 $ shasum -a 256 darwin/f18_editor/f18_editor
 --------------------------------------------
 d2d97c8800fde9ce85bf569d9f4df6b1e0530e37ab90ef3beb0003da32e42753  darwin/f18_editor/f18_editor
+
+
+hernads-MacBook-Air:F18_util hernad$ shasum -a 256 yarg/bin/yarg*
+85e0db4dcda583fb806d76041d5f1951a59f4b63ded5c33e2ac2cc9e2a60a2e4  yarg/bin/yarg
+9ec070dd7575cbba959e23a85a4eb3e5fe12b518532e08ba2ad45441af28685f  yarg/bin/yarg.bat
