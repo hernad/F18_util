@@ -1,4 +1,7 @@
-REM set KNOWHOW_PATH=c:\knowhowERP\util
+REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
+REM %~dp0 is "C:\temp\"
+set PATH0=%PATH%
+set PATH=%~dp0;%PATH%
 
 set FN=%1
 
@@ -32,3 +35,4 @@ start /MAX f18_gvim.exe -c ":set encoding=utf-8" -c ":set nowrap" -c ":set noswa
 
 start focus.vbs "%FN%.conv.txt"
 
+set PATH=%PATH0%
