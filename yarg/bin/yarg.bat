@@ -12,6 +12,14 @@ if "%OS%"=="Windows_NT" setlocal
 set DEFAULT_JVM_OPTS=
 
 set DIRNAME=%~dp0
+
+if file "%DIRNAME%\..\..\java" (
+  pushd "%DIRNAME%\..\..\java"
+  set JAVA_HOME="%CD%" 
+  popd
+)
+
+
 if "%DIRNAME%" == "" set DIRNAME=.
 set APP_BASE_NAME=%~n0
 set APP_HOME=%DIRNAME%..
