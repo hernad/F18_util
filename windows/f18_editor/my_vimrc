@@ -55,3 +55,9 @@ endif
 
 "izadlji sa esc
 nmap <ESC> :q!<CR>
+
+set encoding=utf-8
+set nowrap
+set noswapfile
+set nobackup" 
+set guifont=Lucida_Console:h12

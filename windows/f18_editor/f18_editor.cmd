@@ -1,7 +1,8 @@
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
 set PATH0=%PATH%
-set PATH=%~dp0;%PATH%
+set THISDIR=%~dp0
+set PATH=%THISDIR%;c:\windows\system32
 
 set FN=%1
 
@@ -24,14 +25,18 @@ set FN=%FN% %6
 :full
 
 
-del /Q  %FN%.conv.txt
-type "%FN%" | sed -e ""s/#\S\+#//g"" | iconv -c -f IBM852 -t UTF-8 > "%FN%.conv.txt"
+if exist "%FN%.conv.txt" del /Q  "%FN%.conv.txt"
 
-rem -c "nmap <C-P> :exe '!ptxt ' . substitute(@%%, '.conv.txt', '', 'y') . ' /p'<CR>" -c ":set wrap!" -c ":set guioptions+=b" -c ":set gfn=Lucida_Console:h9:w7:cDEFAULT"
- 
+iconv -f CP852 -t UTF-8 "%FN%" | sed -e "s/#\S\{1\}[0-9A-Z_]\{5\}#//g" > "%FN%.conv.txt"
 
+if not exist "%WINDIR%\fonts\sctah.ttf" (
+  copy "%THISDIR%\sctah.ttf" "%WINDIR%\fonts\"
+  copy "%THISDIR%\sctahm.ttf" "%WINDIR%\fonts\"
+  copy "%THISDIR%\sctahm2.ttf" "%WINDIR%\fonts\"
+  FontReg.exe
+)
 
-start /MAX f18_gvim.exe -c ":set encoding=utf-8" -c ":set nowrap" -c ":set noswapfile" -c ":set nobackup" -c "nmap <C-P> :exe '!start cmd /c ptxt.cmd \"' . substitute(@%%, '.conv.txt', '', 'y') . '\" /p'<CR>" "%FN%.conv.txt" 
+start /MAX f18_gvim.exe -u "%THISDIR%\my_vimrc" -c "nmap <C-P> :exe '!start cmd /c ptxt.cmd \"' . substitute(@%%, '.conv.txt', '', 'y') . '\" /p'<CR>" "%FN%.conv.txt" 
 
 start focus.vbs "%FN%.conv.txt"
 
