@@ -42,6 +42,12 @@ case "`uname`" in
     ;;
 esac
 
+THISDIR="$(cd "$(dirname "$0")"; pwd)"
+if [ -d "$THISDIR/../../java" ] ; then 
+  export JAVA_HOME="$(cd "$(dirname "$THISDIR/../../java")"; pwd)"
+  echo "set JAVA_HOME=$JAVA_HOME"
+fi
+
 # Attempt to set APP_HOME
 # Resolve links: $0 may be a link
 PRG="$0"
