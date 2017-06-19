@@ -13,12 +13,12 @@ set DEFAULT_JVM_OPTS=
 
 set DIRNAME=%~dp0
 
-if file "%DIRNAME%\..\..\java" (
-  pushd "%DIRNAME%\..\..\java"
-  set JAVA_HOME="%CD%" 
+if exist "%DIRNAME%..\..\java" (
+  pushd "%DIRNAME%..\..\java"
+  for /F %%x in ('cd') do (set JAVA_HOME="%%x")
   popd
 )
-
+@echo JAVA_HOME=%JAVA_HOME
 
 if "%DIRNAME%" == "" set DIRNAME=.
 set APP_BASE_NAME=%~n0
