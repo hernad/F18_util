@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# java8 linux i386
+
+THISDIR="$(dirname "$0")"
+
+export JAVA_HOME=$THIS_DIR
+
+$THISDIR/bin/java $@
+
