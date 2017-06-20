@@ -25,10 +25,9 @@ set FN=%FN% %6
 :full
 
 
-REM if not exist "%APPDATA%\LO\4" (
-REM   mkdir "%APPDATA%\LO"
-REM   mkdir "%APPDATA%\LO\4"
-REM  xcopy /s "%THISDIR%\APPDATA\*.*" "%APPDATA%\LO\4\"
+REM if not exist "%APPDATA%\SumatraPDF" (
+REM   mkdir "%APPDATA%\SumatraPDF"
+REM  xcopy /s "%THISDIR%\APPDATA\*.*" "%APPDATA%\SumatraPDF\"
 REM )
 
 start /MAX %THISDIR%\SumatraPDF.exe "%FN%"
