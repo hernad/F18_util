@@ -1,8 +1,9 @@
+REM 002 == version ===
+
 REM %~dp0 is "C:\temp\"
 set PATH0=%PATH%
 set THISDIR=%~dp0
 set PATH=%THISDIR%\program;c:\windows\system32
-
 
 set FN=%1
 

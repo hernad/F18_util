@@ -148,7 +148,7 @@ UseDefaultState in FileStates)
 RememberStatePerDocument = true
 
 ISO code of the current UI language
-UiLanguage =
+UiLanguage = bs
 
 if true, we show the toolbar at the top of the window
 ShowToolbar = true
