@@ -31,7 +31,7 @@ REM   mkdir "%APPDATA%\LO\4"
 REM  xcopy /s "%THISDIR%\APPDATA\*.*" "%APPDATA%\LO\4\"
 REM )
 
-start /MAX %THISDIR%\pdf\SumatraPDF.exe "%FN%"
+start /MAX %THISDIR%\SumatraPDF.exe "%FN%"
 
 REM start focus.vbs "%FN%.conv.txt"
 
