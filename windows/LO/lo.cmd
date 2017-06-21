@@ -1,4 +1,4 @@
-REM 003 VERZIJA
+REM 004 VERZIJA
 
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
