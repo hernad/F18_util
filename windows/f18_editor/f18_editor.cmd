@@ -1,3 +1,4 @@
+REM 004 VERZIJA
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
 set PATH0=%PATH%
@@ -11,7 +12,6 @@ set FN=%FN% %2
 
 if "%3"==""  goto :full
 set FN=%FN% %3
-
 
 if "%4"==""  goto :full
 set FN=%FN% %4
@@ -33,7 +33,7 @@ if not exist "%WINDIR%\fonts\sctah.ttf" (
   copy "%THISDIR%\sctah.ttf" "%WINDIR%\fonts\"
   copy "%THISDIR%\sctahm.ttf" "%WINDIR%\fonts\"
   copy "%THISDIR%\sctahm2.ttf" "%WINDIR%\fonts\"
-  FontReg.exe
+  RunAdmin.exe FontReg.exe
 )
 
 start /MAX f18_gvim.exe -u "%THISDIR%\my_vimrc" -c "nmap <C-P> :exe '!start cmd /c ptxt.cmd \"' . substitute(@%%, '.conv.txt', '', 'y') . '\" /p'<CR>" "%FN%.conv.txt" 
