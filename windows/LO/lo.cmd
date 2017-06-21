@@ -34,9 +34,9 @@ if not exist "%APPDATA%\LO\4" (
   xcopy /s "%THISDIR%\APPDATA\*.*" "%APPDATA%\LO\4\"
 )
 
-if not exist "%WINDIR%\system32\msvcr120.dll" (
-  "%THISDIR%\SYSTEM\vcredist_x86.exe" /install /passive /norestart
-)
+REM if not exist "%WINDIR%\system32\msvcr120.dll" (
+REM  "%THISDIR%\SYSTEM\vcredist_x86.exe" /install /passive /norestart
+REM )
 
 start /MAX %THISDIR%\program\soffice.exe --nologo "%FN%"
 
