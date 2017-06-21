@@ -1,4 +1,4 @@
-REM 005 VERZIJA
+REM 006 VERZIJA
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
 set PATH0=%PATH%
@@ -30,7 +30,7 @@ if exist "%FN%.conv.txt" del /Q  "%FN%.conv.txt"
 iconv -f CP852 -t UTF-8 "%FN%" | sed -e "s/#\S\{1\}[0-9A-Z_]\{5\}#//g" > "%FN%.conv.txt"
 
 if not exist "%WINDIR%\fonts\sctah.ttf" (
-  wscript fonts_install.vbs "%THISDIR%"
+  wscript "%THISDIR%\fonts_install.vbs" "%THISDIR%"
   FontReg.exe
 )
 
