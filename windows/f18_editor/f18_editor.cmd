@@ -30,10 +30,9 @@ if exist "%FN%.conv.txt" del /Q  "%FN%.conv.txt"
 iconv -f CP852 -t UTF-8 "%FN%" | sed -e "s/#\S\{1\}[0-9A-Z_]\{5\}#//g" > "%FN%.conv.txt"
 
 if not exist "%WINDIR%\fonts\sctah.ttf" (
-  copy "%THISDIR%\sctah.ttf" "%WINDIR%\fonts\"
-  copy "%THISDIR%\sctahm.ttf" "%WINDIR%\fonts\"
-  copy "%THISDIR%\sctahm2.ttf" "%WINDIR%\fonts\"
-  RunAdmin.exe FontReg.exe
+  wscript fonts_install.vbs "%THISDIR%"
+  FontReg.exe
+
 )
 
 start /MAX f18_gvim.exe -u "%THISDIR%\my_vimrc" -c "nmap <C-P> :exe '!start cmd /c ptxt.cmd \"' . substitute(@%%, '.conv.txt', '', 'y') . '\" /p'<CR>" "%FN%.conv.txt" 
