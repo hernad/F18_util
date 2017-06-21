@@ -1,3 +1,5 @@
+REM 003 VERZIJA
+
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
 set PATH0=%PATH%
@@ -32,7 +34,11 @@ if not exist "%APPDATA%\LO\4" (
   xcopy /s "%THISDIR%\APPDATA\*.*" "%APPDATA%\LO\4\"
 )
 
-start /MAX %THISDIR%\program\soffice.exe "%FN%"
+if not exist "%WINDIR%\system32\msvcr120.dll" (
+  "%THISDIR%\SYSTEM\vcredist_x86.exe" /install /passive /norestart
+)
+
+start /MAX %THISDIR%\program\soffice.exe --nologo "%FN%"
 
 REM start focus.vbs "%FN%.conv.txt"
 
