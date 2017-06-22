@@ -61,3 +61,7 @@ set nowrap
 set noswapfile
 set nobackup" 
 set guifont=Lucida_Console:h12
+" horizontal scroll
+set guioptions+=b
+set rulerformat=%l,%v
+set ruler
