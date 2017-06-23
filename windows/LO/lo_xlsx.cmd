@@ -1,4 +1,4 @@
-REM 006 VERZIJA
+REM 005 VERZIJA
 
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
@@ -28,18 +28,4 @@ set FN=%FN% %6
 :full
 
 
-if not exist "%APPDATA%\LO\4" (
-  mkdir "%APPDATA%\LO"
-  mkdir "%APPDATA%\LO\4"
-  xcopy /s "%THISDIR%\APPDATA\*.*" "%APPDATA%\LO\4\"
-)
-
-REM if not exist "%WINDIR%\system32\msvcr120.dll" (
-REM  "%THISDIR%\SYSTEM\vcredist_x86.exe" /install /passive /norestart
-REM )
-
-start /MAX %THISDIR%\program\soffice.exe --nologo "%FN%"
-
-REM start focus.vbs "%FN%.conv.txt"
-
-set PATH=%PATH0%
+%THISDIR%\program\soffice.exe --nologo soffice --convert-to xlsx:"Calc MS Excel 2007 XML" "%FN%"

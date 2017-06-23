@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROG=F18_sha256sum
+PROG=${1:-F18_sha256sum}
 
 export GOOS=windows
 export GOARCH=386 
