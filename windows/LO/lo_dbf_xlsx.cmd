@@ -10,7 +10,7 @@ set FILE=%1
 set OUTDIR=%2
 
 
-%THISDIR%\program\soffice.exe --nologo soffice ^
+%THISDIR%\program\soffice.exe --nologo ^
     --convert-to xlsx:"Calc MS Excel 2007 XML" ^
     --infilter=dBase:25 ^
     --outdir %OUTDIR% ^

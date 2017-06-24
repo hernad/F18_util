@@ -1,16 +1,23 @@
 #!/bin/bash
 
-#VERSION 002
-
 THISDIR="$(dirname "$0")"
 
 LD_LIBRARY_PATH=$THISDIR/program:$LD_LIBRARY_PATH
 
 #/home/<user name>/.config/libreoffice/4/user   (LibreOffice 4 & 5)
 
+
 if [ ! -d $HOME/.config/lo/4/user ] ; then
   mkdir -p $HOME/.config/lo/4/user
   cp -av $THISDIR/CONFIG/* $HOME/.config/lo/4/user/
 fi
 
-$THISDIR/program/soffice --nologo $@
+FILE=$1
+OUTDIR=$2
+
+$THISDIR/program/soffice --nologo \
+    --convert-to xlsx:"Calc MS Excel 2007 XML" \
+    --infilter=dBase:25 \
+    --outdir $OUTDIR \
+    $FILE
+
