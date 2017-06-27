@@ -15,7 +15,7 @@ fi
 FILE=$1
 OUTDIR=$2
 
-$THISDIR/program/soffice --nologo \
+$THISDIR/program/soffice --norestore --nologo \
     --convert-to xlsx:"Calc MS Excel 2007 XML" \
     --infilter=dBase:25 \
     --outdir $OUTDIR \

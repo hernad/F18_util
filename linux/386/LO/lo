@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#VERSION 002
+#VERSION 003
 
 THISDIR="$(dirname "$0")"
 
@@ -13,4 +13,4 @@ if [ ! -d $HOME/.config/lo/4/user ] ; then
   cp -av $THISDIR/CONFIG/* $HOME/.config/lo/4/user/
 fi
 
-$THISDIR/program/soffice --nologo $@
+$THISDIR/program/soffice --norestore --nologo $@
