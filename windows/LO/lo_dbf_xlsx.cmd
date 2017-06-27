@@ -1,4 +1,4 @@
-REM 006 VERZIJA
+REM 007 VERZIJA
 
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
@@ -10,7 +10,7 @@ set FILE=%1
 set OUTDIR=%2
 
 
-%THISDIR%\program\soffice.exe --nologo ^
+%THISDIR%\program\soffice.exe --norestore --nologo ^
     --convert-to xlsx:"Calc MS Excel 2007 XML" ^
     --infilter=dBase:25 ^
     --outdir %OUTDIR% ^

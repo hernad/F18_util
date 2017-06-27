@@ -1,4 +1,4 @@
-REM 007 VERZIJA
+REM 008 VERZIJA
 REM https://stackoverflow.com/questions/1645843/resolve-absolute-path-from-relative-path-and-or-file-name
 REM %~dp0 is "C:\temp\"
 set PATH0=%PATH%
@@ -12,6 +12,6 @@ if not exist "%APPDATA%\LO\4" (
   xcopy /s "%THISDIR%\APPDATA\*.*" "%APPDATA%\LO\4\"
 )
 
-start /MAX %THISDIR%\program\soffice.exe --nologo %FILE%
+start /MAX %THISDIR%\program\soffice.exe --norestore --nologo %FILE%
 
 set PATH=%PATH0%
